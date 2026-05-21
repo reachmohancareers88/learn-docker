@@ -16,4 +16,4 @@ FROM          docker.io/redhat/ubi10
 RUN           dnf install nginx -y
 ENTRYPOINT    ["nginx", "-g", "daemon off;"]
 EXPOSE        80
-COPY          --from /tmp/out/ /usr/share/nginx/html/
+COPY          --from=builder /tmp/out/ /usr/share/nginx/html/
