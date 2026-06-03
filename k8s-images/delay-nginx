@@ -1,3 +1,4 @@
 FROM          docker.io/redhat/ubi10
 RUN           dnf install nginx -y
-ENTRYPOINT    ["sleep", "60", "&&", "nginx", "-g", "daemon off;"]
+COPY          delay.sh /
+ENTRYPOINT    ["bash", "/delay.sh"]
